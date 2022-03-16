@@ -10,6 +10,11 @@ public class Bankomat {
 
             Scanner sc = new Scanner(System.in);
 
+            System.out.println("1. Einzahlen");
+            System.out.println("2. Abheben");
+            System.out.println("3. Kontostand");
+            System.out.println("4. Beenden");
+
             System.out.println("Was möchtest du tun:");
 
 
