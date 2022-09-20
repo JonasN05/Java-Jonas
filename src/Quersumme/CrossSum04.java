@@ -5,32 +5,31 @@ import java.util.Scanner;
 public class CrossSum04 {
 
     public static void main(String[] args) {
-
+        System.out.println("Press 1 to start");
         Scanner sc = new Scanner(System.in);
         int starting = sc.nextInt();
 
         while(starting == 1){
 
-            int number = sc.nextInt();
+            System.out.println("Set a number");
+            int input = sc.nextInt();
+            int firstValue = input;
 
-            String stringNumber = Integer.toString(number);
-            char[] numbers = stringNumber.toCharArray();
-
-            int result = 0;
-            for(int i = 0; i<numbers.length;i++){
-                result += Character.getNumericValue(numbers[i]);
-            }
-            System.out.println(result);
-
-
-            public static int quersumme(int zahl) {
-
-                if (zahl <= 9){
-                    return zahl;
-                }else{
-                    return zahl%10 + quersumme(zahl/10);
+            while (input > 9){
+                int temporary = input;
+                input = 0;
+                while (temporary > 0) {
+                    input += temporary % 10;
+                    temporary /= 10;
                 }
+            }
+            System.out.println("Set Value: " + firstValue);
+            System.out.println("Result: " + input);
+            System.out.println("Press 2 to exit press 1 to continue");
 
+            int finished = sc.nextInt();
+            if (finished==2){
+                break;
             }
         }
     }
