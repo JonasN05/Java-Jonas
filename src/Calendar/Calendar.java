@@ -99,35 +99,7 @@ public class Calendar {
                 System.out.println(" |");
             }
         }
-
-
-
-     /*
-
-        temporary = 0;
-
-        while (temporary < amountOfDays) {
-            if (temporary%7 == 0)
-                System.out.print("| ");
-            else{
-                System.out.print(" | ");
-            }
-
-            if (temporary < startingOfMonth){
-                System.out.print("  ");
-            }
-            else{
-                System.out.print(temporary);
-            }
-
-            if (temporary-startingOfMonth<10 && temporary >= startingOfMonth) System.out.print(" ");
-            temporary++;
-
-            if (temporary%7 == 0) System.out.println(" |");
-        }*/
-
     }
-
 }
 
 
