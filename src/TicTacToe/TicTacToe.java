@@ -6,6 +6,9 @@ public class TicTacToe {
     static char[][] playField = new char[3][3];
     static int player = 0;
     static boolean running = true;
+    static int counter = 0;
+    static Scanner sc = new Scanner(System.in);
+    static int newPlayer = 0;
 
     public static void main(String[] args) {
 
@@ -13,7 +16,6 @@ public class TicTacToe {
         System.out.println("Welcome to TicTacToe");
         System.out.println("********************");
 
-        Scanner sc = new Scanner(System.in);
         System.out.println();
 
         while(running){
@@ -37,7 +39,6 @@ public class TicTacToe {
         }
     }
 
-
     public static void enterChoice(int x, int y){
         if(player%2 == 1){
             if(playField[x][y]!='x' && playField[x][y]!='o'){
@@ -46,9 +47,14 @@ public class TicTacToe {
                 if (isThereAWinner()){
                     System.out.println("Der Gewinner ist Spieler 1");
                     clearGame();
-                    player = 0;
+                    System.out.println("Welcher Spieler soll starten?");
+                    int newPlayer = sc.nextInt();
+                    if (newPlayer==1){
+                        player = 1;
+                    }else if (newPlayer==2){
+                        player = 0;
+                    }
                 }
-
             }else{
                 System.out.println("Das Feld wurde bereits besetzt");
                 player = 0;
@@ -60,9 +66,14 @@ public class TicTacToe {
                 if (isThereAWinner()){
                     System.out.println("Der Gewinner ist Spieler 2");
                     clearGame();
-                    player = 0;
+                    System.out.println("Welcher Spieler soll starten?");
+                    int newPlayer = sc.nextInt();
+                    if (newPlayer==1){
+                        player = 1;
+                    }else if (newPlayer==2){
+                        player = 0;
+                    }
                 }
-
             }else{
                 System.out.println("Das Feld wurde bereits besetzt");
                 player = 1;
@@ -88,18 +99,30 @@ public class TicTacToe {
         return true;
         }
 
-        /*for (int row = 0; row < playField.length; row++) {
+        for (int row = 0; row < playField.length; row++) {
             for (int col = 0; col < playField.length; col++) {
-                if(playField[row][col]!='\u0000'){
-                    clearGame();
-                    System.out.println("Unentschieden");
+                if(playField[row][col]=='o'||playField[row][col]=='x'){
+                    counter += 1;
                 }
-            }
+            }System.out.println();
+        }
+
+        if(counter == 9){
+            clearGame();
             System.out.println();
-        }*/
+            System.out.println("Unentschieden");
+            System.out.println();
+            System.out.println("Welcher Spieler soll starten?");
+            int newPlayer = sc.nextInt();
+            if (newPlayer==1){
+                player = 1;
+            }else if (newPlayer==2){
+                player = 0;
+            }
+        }
+        counter = 0;
         return false;
     }
-
 
     public static void clearGame(){
         for (int row = 0; row < playField.length; row++) {
