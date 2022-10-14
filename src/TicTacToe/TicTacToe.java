@@ -9,6 +9,7 @@ public class TicTacToe {
     static int counter = 0;
     static Scanner sc = new Scanner(System.in);
     static int newPlayer = 0;
+    static int endGame =0;
 
     public static void main(String[] args) {
 
@@ -45,14 +46,20 @@ public class TicTacToe {
                 playField[x][y] = 'x';
                 createPlayField();
                 if (isThereAWinner()){
-                    System.out.println("Der Gewinner ist Spieler 1");
+                    System.out.println("Der Gewinner ist Spieler 2");
                     clearGame();
-                    System.out.println("Welcher Spieler soll starten?");
-                    int newPlayer = sc.nextInt();
-                    if (newPlayer==1){
-                        player = 1;
-                    }else if (newPlayer==2){
-                        player = 0;
+                    System.out.println("Möchtest du weiterspielen? 1...Nein, 2...Ja");
+                    endGame = sc.nextInt();
+                    if (endGame==1){
+                        running = false;
+                    }else if (endGame==2){
+                        System.out.println("Welcher Spieler soll starten?");
+                        int newPlayer = sc.nextInt();
+                        if (newPlayer==1){
+                            player = 1;
+                        }else if (newPlayer==2){
+                            player = 0;
+                        }
                     }
                 }
             }else{
@@ -64,14 +71,20 @@ public class TicTacToe {
                 playField[x][y] = 'o';
                 createPlayField();
                 if (isThereAWinner()){
-                    System.out.println("Der Gewinner ist Spieler 2");
+                    System.out.println("Der Gewinner ist Spieler 1");
                     clearGame();
-                    System.out.println("Welcher Spieler soll starten?");
-                    int newPlayer = sc.nextInt();
-                    if (newPlayer==1){
-                        player = 1;
-                    }else if (newPlayer==2){
-                        player = 0;
+                    System.out.println("Möchtest du weiterspielen? 1...Nein, 2...Ja");
+                    endGame = sc.nextInt();
+                    if (endGame==1){
+                        running = false;
+                    }else if (endGame==2){
+                        System.out.println("Welcher Spieler soll starten?");
+                        int newPlayer = sc.nextInt();
+                        if (newPlayer==1){
+                            player = 1;
+                        }else if (newPlayer==2){
+                            player = 0;
+                        }
                     }
                 }
             }else{

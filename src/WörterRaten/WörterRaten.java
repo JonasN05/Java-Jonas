@@ -14,7 +14,6 @@ public class WörterRaten {
         int numberOfWords = 0;
         Random random = new Random();
         numberOfWords = random.nextInt(words.length);
-        System.out.println(numberOfWords);
 
         String word = words[numberOfWords];
 
@@ -34,6 +33,15 @@ public class WörterRaten {
             }
         }
 
+        for (int i = 0; i < guessedWord.length; i++) {
+            if (letters[i]==guessedWord[0] && 0!=i){
+                guessedWord[i]=guessedWord[0];
+            }
+            if (letters[i]==guessedWord[guessedWord.length-2]&& guessedWord.length-2!=i){
+                guessedWord[i]=guessedWord[guessedWord.length-2];
+            }
+        }
+
         while (isRunning){
             System.out.println();
             System.out.println("Welchen Buchstaben willst du aufdecken:");
@@ -47,13 +55,15 @@ public class WörterRaten {
                         guessedWord[i]='*';
                     }
                 }
+
+            //Ausgabe des Wortes
             for (char result:guessedWord) {
                 System.out.print(result);
             }
             System.out.println();
 
+            //Abfragen ob das Wort erraten Wurde
             int finished = 0;
-
             for (int i = 0; i < guessedWord.length; i++) {
                 if (guessedWord[i]!='*'){
                     finished+=1;
