@@ -1,18 +1,26 @@
 package OO;
 
 import OO.objects.Car;
+import OO.objects.Engine;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Car c1 = new Car();
-        c1.brand = "Audi";
-        c1.fuelconsumption = 7;
-        c1.serialNumber = "A1234";
-        c1.fuelamount = 70;
-        c1.fuel = 70;
+        Engine e1 = new Engine(140, Engine.TYPE.DIESEL);
 
+        /*
+        Car c1 = new Car(0,"","", 0,0,"");
+        c1.setBrand("Audi");
+        c1.setFuelconsumption(7);
+        c1.setSerialNumber("A1234");
+        c1.setFuelamount(70);
+        c1.setFuel(120);
+
+        System.out.println(c1.getFuel());
+         */
+
+        /*
         Car c2 = new Car();
         c2.brand = "Mercedes";
         c2.fuelconsumption = 6;
@@ -36,5 +44,13 @@ public class Main {
 
         System.out.println();
         System.out.println(c2.getRemainingRange());
+        */
+
+        /*
+        Car c3 = new Car(0,"VW","", 0,0,"");
+        System.out.println(c3.getBrand());
+
+        */
+
     }
 }
