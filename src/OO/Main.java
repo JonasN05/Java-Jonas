@@ -2,12 +2,25 @@ package OO;
 
 import OO.objects.Car;
 import OO.objects.Engine;
+import OO.objects.Tank;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Engine e1 = new Engine(140, Engine.TYPE.DIESEL);
+        Engine e1 = new Engine(140, Engine.TYPE.DIESEL,99);
+        Tank t1 = new Tank(200,100);
+
+        Car c1 = new Car(e1, 10, "Audi", "A1234", "red", t1);
+
+        int value  = c1.getEngine().getHorsePower();
+        System.out.println(value);
+
+        e1.setSpeed(70);
+        c1.drive();
+
+        System.out.println(c1.getTank().getMaxfuel());
+        System.out.println(t1.getFuel());
 
         /*
         Car c1 = new Car(0,"","", 0,0,"");

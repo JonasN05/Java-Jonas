@@ -4,11 +4,10 @@ public class Car {
     //Instanz, Gedächtnisvariabeln
 
     private Engine engine;
+    private Tank tank;
     private int fuelconsumption;
     private String brand;
     private String serialNumber;
-    private int fuelamount;
-    private int fuel;
     private String color;
 
     public Engine getEngine() {
@@ -18,6 +17,16 @@ public class Car {
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
+
+    public Tank getTank() {
+        return tank;
+    }
+
+    public void setTank(Tank tank) {
+        this.tank = tank;
+    }
+
+
 
     public void setFuelconsumption(int fuelconsumption) {
         this.fuelconsumption = fuelconsumption;
@@ -31,17 +40,6 @@ public class Car {
         this.serialNumber = serialNumber;
     }
 
-    public void setFuelamount(int fuelamount) {
-        this.fuelamount = fuelamount;
-    }
-
-    public void setFuel(int fuel) {
-        if(fuel>100){
-            this.fuel = 100;
-        }else{
-            this.fuel = fuel;
-        }
-    }
 
     public void setColor(String color) {
         this.color = color;
@@ -60,34 +58,33 @@ public class Car {
         return serialNumber;
     }
 
-    public int getFuelamount() {
-        return fuelamount;
-    }
-
-    public int getFuel() {
-        return fuel;
-    }
-
     public String getColor() {
         return color;
     }
 
-    public Car(Engine engine, int fuelconsumption, String brand, String serialNumber, int fuelamount, int fuel, String color){
+
+    public Car(Engine engine, int fuelconsumption, String brand, String serialNumber, String color, Tank tank){
         this.engine = engine;
+        this.tank = tank;
         this.fuelconsumption = fuelconsumption;
         this.brand = brand;
         this.serialNumber = serialNumber;
-
     }
+
+
 
     public void drive(){
         //this variable is never used because of "this."
         int fuelconsumption = 100;
 
         System.out.println("das Auto fährt");
-        this.fuelamount = this.fuelamount - this.fuelconsumption;
+        //this.fuelamount = this.fuelamount - this.fuelconsumption;
+        System.out.println(this.getEngine().getSpeed());
     }
 
+
+
+    /*
     public void breaking(){
         System.out.println("Ich bremse");
     }
@@ -110,4 +107,6 @@ public class Car {
     public int getRemainingRange(){
         return this.fuelamount/this.fuelconsumption;
     }
+    */
+
 }

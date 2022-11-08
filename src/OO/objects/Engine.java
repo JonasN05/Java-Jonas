@@ -7,10 +7,17 @@ public class Engine {
     }
     private int horsePower;
     private TYPE type;
+    private int speed;
 
-    public Engine(int horsePower, TYPE type){
+    public Engine(int horsePower, TYPE type, int speed){
         this.horsePower = horsePower;
         this.type = type;
+        if (speed<100&&speed>0){
+            this.speed = speed;
+        }else{
+            System.out.println("Falscher Wert");
+            this.speed = 50;
+        }
     }
 
     public void drive(int amount){
@@ -23,5 +30,17 @@ public class Engine {
 
     public TYPE getType() {
         return type;
+    }
+
+    public int getSpeed() {return speed;}
+
+    public void setSpeed(int speed) {
+        if (speed<100&&speed>0){
+            this.speed = speed;
+        }else{
+            System.out.println("Falscher Wert");
+            this.speed = 50;
+        }
+
     }
 }
