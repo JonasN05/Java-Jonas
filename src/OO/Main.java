@@ -1,8 +1,6 @@
 package OO;
 
-import OO.objects.Car;
-import OO.objects.Engine;
-import OO.objects.Tank;
+import OO.objects.*;
 
 public class Main {
 
@@ -11,7 +9,28 @@ public class Main {
         Engine e1 = new Engine(140, Engine.TYPE.DIESEL,99);
         Tank t1 = new Tank(200,100);
 
+        RearMirror r1 = new RearMirror(100,0);
+        RearMirror r2 = new RearMirror(90,-40);
+
+        Tire ti1 = new Tire(200,150, Tire.TYPE.summerTire);
+        Tire ti2 = new Tire(190,150, Tire.TYPE.summerTire);
+        Tire ti3 = new Tire(210,150, Tire.TYPE.summerTire);
+        Tire ti4 = new Tire(180,150, Tire.TYPE.summerTire);
+        Tire ti5 = new Tire(150,170, Tire.TYPE.winterTire);
+
         Car c1 = new Car(e1, 10, "Audi", "A1234", "red", t1);
+        c1.addMirror(r1);
+        c1.addMirror(r2);
+
+        c1.addTire(ti1);
+        c1.addTire(ti2);
+        c1.addTire(ti3);
+        c1.addTire(ti4);
+
+
+        System.out.println(c1.getTires().get(0).getType());
+
+        System.out.println(c1.getMirrors().get(0).getPosition());
 
         int value  = c1.getEngine().getHorsePower();
         System.out.println(value);
@@ -20,7 +39,6 @@ public class Main {
         c1.drive();
 
         System.out.println(c1.getTank().getMaxfuel());
-        System.out.println(t1.getFuel());
 
         /*
         Car c1 = new Car(0,"","", 0,0,"");

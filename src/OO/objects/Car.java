@@ -1,19 +1,49 @@
 package OO.objects;
 
+import java.net.Inet4Address;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Car {
     //Instanz, Gedächtnisvariabeln
 
     private Engine engine;
+    private List<RearMirror> mirrors;
+    private List<Tire> tires;
     private Tank tank;
     private int fuelconsumption;
     private String brand;
     private String serialNumber;
     private String color;
 
+
+    public Car(Engine engine, int fuelconsumption, String brand, String serialNumber, String color, Tank tank){
+        this.engine = engine;
+        this.tank = tank;
+        this.mirrors = new ArrayList<>();
+        this.tires = new ArrayList<>();
+        this.fuelconsumption = fuelconsumption;
+        this.brand = brand;
+        this.serialNumber = serialNumber;
+    }
+
+    public void addMirror(RearMirror rearMirror){
+        this.mirrors.add(rearMirror);
+    }
+    public List<RearMirror> getMirrors() {
+        return mirrors;
+    }
+
+    public void addTire(Tire tire){
+        this.tires.add(tire);
+    }
+    public List<Tire> getTires() {
+        return tires;
+    }
+
     public Engine getEngine() {
         return engine;
     }
-
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
@@ -21,57 +51,38 @@ public class Car {
     public Tank getTank() {
         return tank;
     }
-
     public void setTank(Tank tank) {
         this.tank = tank;
     }
 
 
 
+
     public void setFuelconsumption(int fuelconsumption) {
         this.fuelconsumption = fuelconsumption;
     }
-
     public void setBrand(String brand) {
         this.brand = brand;
     }
-
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
-
-
     public void setColor(String color) {
         this.color = color;
     }
 
-
     public int getFuelconsumption() {
         return fuelconsumption;
     }
-
     public String getBrand() {
         return brand;
     }
-
     public String getSerialNumber() {
         return serialNumber;
     }
-
     public String getColor() {
         return color;
     }
-
-
-    public Car(Engine engine, int fuelconsumption, String brand, String serialNumber, String color, Tank tank){
-        this.engine = engine;
-        this.tank = tank;
-        this.fuelconsumption = fuelconsumption;
-        this.brand = brand;
-        this.serialNumber = serialNumber;
-    }
-
-
 
     public void drive(){
         //this variable is never used because of "this."
