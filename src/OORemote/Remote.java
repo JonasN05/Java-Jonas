@@ -7,6 +7,8 @@ public class Remote {
 
     private List<Battery> batteries;
 
+
+
     public Remote(/*List<Battery> batteries*/) {
         this.batteries = new ArrayList<>();
     }
