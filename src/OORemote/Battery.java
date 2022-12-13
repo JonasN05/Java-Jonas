@@ -1,19 +1,23 @@
 package OORemote;
 
 public class Battery {
-    private int startBatteryLevel;
-    private int currentBatteryLevel;
+    private double startBatteryLevel;
+    private double currentBatteryLevel;
 
     public Battery(int startBatteryLevel) {
         this.startBatteryLevel = startBatteryLevel;
-        this.currentBatteryLevel = startBatteryLevel;
+        this.currentBatteryLevel = this.startBatteryLevel;
     }
 
-    public int getStartBatteryLevel() {
+    public double getStartBatteryLevel() {
         return startBatteryLevel;
     }
-    public int getCurrentBatteryLevel() {
+    public double getCurrentBatteryLevel() {
         return currentBatteryLevel;
+    }
+
+    public void setCurrentBatteryLevel(double currentBatteryLevel) {
+        this.currentBatteryLevel = currentBatteryLevel;
     }
 }
 

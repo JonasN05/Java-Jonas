@@ -30,6 +30,11 @@ public class Main {
 
         System.out.println(c1.getTires().get(0).getType());
 
+        c1.getTires().get(0).setType(Tire.TYPE.winterTire);
+        c1.getTires().get(0).setSize(20);
+        System.out.println(c1.getTires().get(0).getType());
+        System.out.println(c1.getTires().get(0).getSize());
+
         System.out.println(c1.getMirrors().get(0).getPosition());
 
         int value  = c1.getEngine().getHorsePower();
