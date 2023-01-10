@@ -28,14 +28,19 @@ public class Lamp {
         }
     }
 
-    public void getOverallPowerStatus(){
+    public double getOverallPowerStatus(){
+        double overallConsumption = 0;
         for (int i = 0; i < lightElements.size(); i++) {
-
-
+            overallConsumption += this.lightElements.get(i).getConsumption();
         }
+        return overallConsumption;
     }
 
-
+    public void printNamesOfLightElements(){
+        for (int i = 0; i < lightElements.size(); i++) {
+            System.out.println(this.lightElements.get(i).getName());
+        }
+    }
 
     public void addLightElement(LightElement lightElement){
         this.lightElements.add(lightElement);
