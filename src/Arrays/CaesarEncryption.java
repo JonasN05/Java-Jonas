@@ -13,6 +13,7 @@ public class CaesarEncryption {
         }
     }
 
+
     public static void encrypt() {
 
         System.out.println("Welches Wort willst du verschlüsseln");
