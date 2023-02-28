@@ -14,9 +14,9 @@ public class Camera {
         this.idNumber = 0;
     }
 
-    public void makePicture(resolution res, String extension, String name){
-        PhoneFile pf = new PhoneFile(idNumber, extension, res, name);
+    public PhoneFile makePicture(resolution res, String extension, String name, double size){
+        PhoneFile pf = new PhoneFile(idNumber, extension, size, name);
         idNumber ++;
-        SDCard.addPhoneFile(pf);
+        return pf;
     }
 }

@@ -3,20 +3,15 @@ package OO.OOPhone;
 public class PhoneFile {
     private int id;
     private String extension;
-    private int size;
+    private double size;
     private String name;
 
-    public PhoneFile(int id, String extension, Camera.resolution res, String name) {
+    public PhoneFile(int id, String extension, double size, String name) {
         this.id = id;
         this.extension = extension;
         this.name = name;
-        if (res == Camera.resolution.HIGH){
-            this.size = 8;
-        } else if (res == Camera.resolution.MEDIUM){
-            this.size = 6;
-        } else{
-            this.size = 4;
-        }
+        this.size = size;
+
     }
 
     public void getInfo(){
