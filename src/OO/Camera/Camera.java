@@ -1,5 +1,10 @@
 package OO.Camera;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class Camera {
     public enum resolution{
         HIGH,
@@ -10,16 +15,16 @@ public class Camera {
     private int weight;
     private String color;
     private Producer producer;
-    private SDCard sdCard;
+    private List<SDCard> sdCards;
     private Objective objective;
 
-    public Camera(int pixel, int weight, String color, Producer producer, SDCard sdCard, Objective objective) {
+    public Camera(int pixel, int weight, String color, Producer producer, Objective objective) {
         this.pixel = pixel;
         this.weight = weight;
         this.color = color;
         this.producer = producer;
-        this.sdCard = sdCard;
         this.objective = objective;
+        this.sdCards = new ArrayList<>();
     }
 
     public void takePicture(String name, resolution res){
@@ -32,6 +37,29 @@ public class Camera {
             size = 2;
         }
 
-        Picture pi = new Picture(name);
+        String date = printSimpleDateFormat();
+        Picture pi = new Picture(name, date, size);
+
+        for (int i = 0; i < sdCards.size(); i++) {
+            if (sdCards.get(i).getFreeCapacity()>=size){
+                sdCards.get(i).addPicture(pi);
+                sdCards.get(i).setFreeCapacity(sdCards.get(i).getFreeCapacity() - size);
+                System.out.println("Bild auf SD" + i + " gespeichert");
+                break;
+            }
+        }
+
+
+
+    }
+    public String printSimpleDateFormat() {
+        SimpleDateFormat formatter = new SimpleDateFormat(
+                "yyyy.MM.dd - HH:mm:ss ");
+        Date currentTime = new Date();
+        return formatter.format(currentTime);
+    }
+
+    public void addSDCards(SDCard sdCard){
+        sdCards.add(sdCard);
     }
 }
