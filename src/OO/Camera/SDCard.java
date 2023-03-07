@@ -31,5 +31,11 @@ public class SDCard {
 
         }
     }
+
+    public void getInfo(){
+        for (Picture picture: pictureFiles) {
+            picture.getInfoOfPicture();
+        }
+    }
 }
 

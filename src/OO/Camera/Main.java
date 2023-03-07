@@ -21,5 +21,7 @@ public class Main {
         sd1.printPictures();
         sd2.printPictures();
 
+        ca.printPictureInfo();
+
     }
 }

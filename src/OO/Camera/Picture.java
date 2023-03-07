@@ -14,4 +14,11 @@ public class Picture {
     public String getName() {
         return name;
     }
+
+    public void getInfoOfPicture(){
+        System.out.println("----------------");
+        System.out.println("Name: " + name);
+        System.out.println("Date: " + date);
+        System.out.println("Size: " + size);
+    }
 }
